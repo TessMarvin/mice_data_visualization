@@ -37,17 +37,25 @@ def weightplot_hero(wdata):
                 y.append(wdata.loc[mouse,columns[i]].tolist())
                 x.append(int(columns[i]))
         data[mouse] = y, x
-        #print(mouse, data[mouse])
     #Create two plots, vertically arranged (one for each gender)
-    fig, axs = plt.subplots(1,1)
+    fig, (ax1, ax2) = plt.subplots(2,1, sharex=True, sharey=True)
     #Give the plots a little space between them so we can have x-axis titles and tick marks
     fig.subplots_adjust(hspace=0.5)
     #Name the plot EDIT NEEDED TO MAKE FLEXIBLE
     fig.suptitle("Body Weight")
     #So this for loop goes and builds each subplot
+    color_dict = {'A':'r', 'B':'b', 'C':'k'}
     for mouse in data.keys():
-            axs.scatter(data[mouse][1], data[mouse][0])
-            #ax.set(xlabel= , ylabel=)
+            if(wdata.loc[mouse, 'Gender'] == 'F'):
+                drug_group = wdata.loc[mouse, 'Drug Treatment']
+                ax1.scatter(data[mouse][1], data[mouse][0], color = color_dict[drug_group], label = drug_group)
+                ax1.legend()
+                ax1.set(title= "Female Mice", xlabel= 'Age (days)', ylabel='Weight (grams)')
+            else:
+                drug_group = wdata.loc[mouse, 'Drug Treatment']
+                ax2.scatter(data[mouse][1], data[mouse][0], color = color_dict[drug_group], label = drug_group)
+                ax2.legend()
+                ax2.set(title= "Male Mice", xlabel= 'Age (days)', ylabel='Weight (grams)')
             #Because there are so many progeny, rotate the tick labels and decrease the font size
             #plt.setp(ax.get_xticklabels(), rotation=45, ha='right', fontsize = 6)
     plt.show()
