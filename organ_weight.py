@@ -1,15 +1,8 @@
 #Author: Tess Marvin (tmarvin@nd.edu)
 #Usage: python mice_weights.py
-#Purpose: Creates a plot of the mice weights over time for Vaughan Lab
+#Purpose: Creates a plot of the organ mice weights over time for Vaughan Lab
 import pandas as pd
 import matplotlib.pyplot as plt
-#from matplotlib import cm
-#from argparse import ArgumentParser
-#import numpy as np
-#from scipy import stats
-#from gooey import Gooey
-#from gooey import GooeyParser
-#from argparse import ArgumentParser
 import math
 
 def o_weights(wdata, organ):
