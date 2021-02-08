@@ -1,6 +1,6 @@
 #Author: Tess Marvin (tmarvin@nd.edu)
-#Usage: python mice_weights.py
-#Purpose: Creates a plot of the organ mice weights over time for Vaughan Lab
+#Usage: python organ_weight.py
+#Purpose: Creates a plot of the organ weights for each treatment group
 import pandas as pd
 import matplotlib.pyplot as plt
 import math
